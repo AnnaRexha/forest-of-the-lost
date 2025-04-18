@@ -6,6 +6,17 @@
 }
 
 body {
+  background-image: url('images/galaxy.jpg'); /* folder and filename must be lowercase & match exactly */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  color: white;
+}
+
+body {
   font-family: 'Arial', sans-serif;
   color: white;
   overflow: hidden;
