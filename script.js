@@ -1,18 +1,18 @@
-// Particles.js initialization (Moving galaxy effect)
+// Particles.js initialization
 particlesJS("particles-js", {
   particles: {
     number: {
-      value: 80, // Number of particles (stars)
+      value: 80, // Adjust the number of particles
       density: {
         enable: true,
         value_area: 800
       }
     },
     color: {
-      value: "#ffffff"
+      value: "#ffffff" // White color for stars
     },
     shape: {
-      type: "circle", // Shape of particles
+      type: "circle", // Particles as circles (like stars)
     },
     opacity: {
       value: 0.5,
@@ -66,34 +66,29 @@ particlesJS("particles-js", {
   retina_detect: true
 });
 
-// Star data (each star has a name and content)
-const starsData = [
-  { name: "Star 1", content: "This is content for Star 1." },
-  { name: "Star 2", content: "This is content for Star 2." },
-  { name: "Star 3", content: "This is content for Star 3." },
-  { name: "Star 4", content: "This is content for Star 4." },
-  { name: "Star 5", content: "This is content for Star 5." },
-  // Add more stars as needed
+// Star (clickable) creation
+const starNames = [
+  'Orion', 'Sirius', 'Polaris', 'Betelgeuse', 'Aldebaran', 'Rigel', 'Antares', 'Capella', 'Arcturus', 'Vega', 'Altair', 'Spica'
 ];
 
-const starContainer = document.getElementById('star-container');
+const container = document.getElementById('bubble-container');
 
-// Create and position the stars
-starsData.forEach((star, index) => {
+// Dynamically generate the stars
+starNames.forEach((star, index) => {
   const starElement = document.createElement('div');
-  starElement.classList.add('star');
-  starElement.innerText = star.name;
+  starElement.classList.add('bubble');
+  starElement.innerText = star;
 
-  // Randomly position the stars in the container
+  // Position the stars randomly within the container
   const x = Math.random() * window.innerWidth;
   const y = Math.random() * window.innerHeight;
   starElement.style.left = `${x}px`;
   starElement.style.top = `${y}px`;
 
-  // Add click event to open the modal with content
+  // Add event listener to open modal when clicked
   starElement.addEventListener('click', () => openModal(star));
 
-  starContainer.appendChild(starElement);
+  container.appendChild(starElement);
 });
 
 // Modal functions
@@ -101,9 +96,15 @@ const modal = document.getElementById('modal');
 const modalBody = document.getElementById('modal-body');
 const closeModalBtn = document.getElementById('close-modal');
 
-function openModal(star) {
+function openModal(starName) {
   modal.classList.remove('hidden');
-  modalBody.innerHTML = star.content; // Display the content for the clicked star
+  modalBody.innerHTML = `Loading content for ${starName}...`;
+
+  // Fetch content for the clicked star (you can customize it with your own content)
+  fetch(`content/${starName}.html`)
+    .then(res => res.text())
+    .then(data => modalBody.innerHTML = data)
+    .catch(() => modalBody.innerHTML = "No content available.");
 }
 
 closeModalBtn.addEventListener('click', () => {
