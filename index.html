@@ -7,38 +7,62 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1>Forest of the Lost</h1>
-  </header>
 
-  <main class="container">
-    <!-- Track 1 -->
+  <!-- Nav Bar -->
+  <nav>
+    <h1>Forest of the Lost</h1>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#covers">Covers</a></li>
+      <li><a href="#vlogs">Vlogs</a></li>
+      <li><a href="#photography">Photography</a></li>
+    </ul>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about" class="section full-section">
+    <h2>About</h2>
+    <p>This is your space to write a short intro, who you are, what you create, etc.</p>
+  </section>
+
+  <!-- Covers Section -->
+  <section id="covers" class="section horizontal-scroll">
+    <h2>Covers</h2>
     <div class="track">
-      <img src="images/photo1.JPG" alt="Track 1" class="track-image" id="track1-img">
+      <img src="Images/photo1.jpg" alt="Track 1" class="track-image" id="track1-img">
       <audio controls id="track1">
         <source src="audios/track1.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
       </audio>
     </div>
-
-    <!-- Track 2 -->
     <div class="track">
       <img src="Images/photo2.jpg" alt="Track 2" class="track-image" id="track2-img">
       <audio controls id="track2">
         <source src="audios/track2.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
       </audio>
     </div>
+  </section>
 
-    <!-- Track 3 -->
-    <div class="track">
-      <img src="Images/photo3.jpg" alt="Track 3" class="track-image" id="track3-img">
-      <audio controls id="track3">
-        <source src="audios/track3.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-      </audio>
+  <!-- Vlogs Section -->
+  <section id="vlogs" class="section horizontal-scroll">
+    <h2>Vlogs</h2>
+    <div class="vlog">
+      <iframe width="300" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vlog 1" allowfullscreen></iframe>
     </div>
-  </main>
+    <div class="vlog">
+      <iframe width="300" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vlog 2" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- Photography Section -->
+  <section id="photography" class="section horizontal-scroll">
+    <h2>Photography</h2>
+    <div class="photo">
+      <img src="Images/photo3.jpg" alt="Photography 1">
+    </div>
+    <div class="photo">
+      <img src="Images/photo4.jpg" alt="Photography 2">
+    </div>
+  </section>
 
   <script src="script.js"></script>
 </body>
