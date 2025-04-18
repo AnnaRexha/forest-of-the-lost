@@ -100,7 +100,7 @@ nav ul li a:hover {
 }
 
 .rotate {
-  animation: spin 4s linear infinite;
+  animation: spin 12s linear infinite;
 }
 
 audio {
