@@ -1,5 +1,6 @@
 body {
-  background-image: url('Images/galaxy.jpg'); /* Update with the path of the galaxy image */
+  background-image: url('Images/galaxy.jpg'); /* Your galaxy background */
+  background-attachment: fixed;
   background-size: cover;
   background-position: center;
   color: white;
@@ -10,6 +11,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 #bubble-container {
