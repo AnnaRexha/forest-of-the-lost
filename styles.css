@@ -1,160 +1,102 @@
-/* Basic Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
+  margin: 0;
+  background: #000;
   font-family: 'Helvetica Neue', sans-serif;
-  background: url('images/background1.jpg') no-repeat center center fixed;
-  background-size: cover;
   color: white;
-  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
-/* Nav Bar */
 nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0,0,0,0.7);
+  padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
-  z-index: 1000;
+  z-index: 10;
 }
 
 nav h1 {
   font-size: 1.8rem;
-  letter-spacing: 1px;
 }
 
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: white;
-  font-size: 1rem;
-  transition: color 0.3s;
-}
-
-nav ul li a:hover {
-  color: #aaa;
-}
-
-/* Sections */
-.section {
-  padding: 100px 40px 60px;
-  min-height: 100vh;
-}
-
-.full-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-/* Horizontal Scroll Sections */
-.horizontal-scroll {
-  display: flex;
-  gap: 40px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  align-items: center;
-  padding-top: 120px;
-}
-
-.horizontal-scroll > * {
-  scroll-snap-align: start;
-}
-
-/* Track styling */
-.track {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 20px;
-  border-radius: 15px;
-  min-width: 300px;
-  text-align: center;
-  box-shadow: 0 0 20px rgba(255,255,255,0.1);
-}
-
-.track-image {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 15px;
-  transition: transform 0.3s;
-}
-
-.rotate {
-  animation: spin 20s linear infinite;
-}
-
-audio {
-  width: 100%;
-}
-
-audio {
-  width: 100%;
+nav button {
   background: transparent;
-  border: none;
-  filter: brightness(1.3);
-  accent-color: #ffffff;
+  border: 1px solid white;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
   cursor: pointer;
 }
 
-.track audio {
+#bubble-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  padding-top: 80px;
+}
+
+.bubble {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
-  padding: 10px;
+  border: 2px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.bubble:hover {
+  background: rgba(255,255,255,0.2);
+  transform: scale(1.1);
+}
+
+.current-month {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1.4);
+  background: white;
+  color: black;
+}
+
+/* Modal styles */
+#modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal-content {
+  background: #111;
+  padding: 30px;
+  max-width: 600px;
+  width: 90%;
   border-radius: 12px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  position: relative;
+  color: white;
 }
 
-/* Vlogs */
-.vlog iframe {
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(255,255,255,0.2);
+#close-modal {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
-/* Photography */
-.photo img {
-  width: 300px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
-}
-
-/* Rotation animation */
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Responsive */
-@media screen and (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    background: rgba(0, 0, 0, 0.9);
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    display: none;
-  }
+.hidden {
+  display: none;
 }
