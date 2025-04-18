@@ -4,14 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Forest of the Lost</title>
-  <script src="particles.js"></script> <!-- particles.js in the same folder -->
-  <link rel="stylesheet" href="styles.css" /> <!-- styles.css in the same folder -->
+
+  <!-- Link to external stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+  
+  <!-- Link to particles.js library -->
+  <script src="particles.js"></script>
 </head>
 <body>
   <!-- Particle background container -->
   <div id="particles-js"></div>
   
-  <!-- Content Modal -->
+  <!-- Content Modal for displaying content when a star is clicked -->
   <div id="modal" class="hidden">
     <div class="modal-content">
       <span id="close-modal">&times;</span>
@@ -19,10 +23,10 @@
     </div>
   </div>
 
-  <!-- The stars will be dynamically created as clickable bubbles -->
+  <!-- The stars (bubbles) will be dynamically created as clickable elements -->
   <div id="bubble-container"></div>
 
-  <!-- Your custom JavaScript file -->
-  <script src="script.js"></script> <!-- script.js in the same folder -->
+  <!-- Link to your custom JavaScript file -->
+  <script src="script.js"></script>
 </body>
 </html>
