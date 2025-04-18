@@ -51,3 +51,6 @@ function showAbout() {
     <p>This is <strong>Forest of the Lost</strong> — a mysterious journey through months, moments, and memories. Click any bubble to explore.</p>
   `;
 }
+
+document.getElementById('modal').classList.add('hidden');
+
