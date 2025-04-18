@@ -5,21 +5,29 @@
     box-sizing: border-box;
 }
 
-/* Body background is black */
-body {
+/* Ensure the entire page has a black background */
+html, body {
+    height: 100%;
     background-color: black;
     font-family: Arial, sans-serif;
     color: white;
+}
+
+/* Center the content */
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     flex-direction: column;
+    text-align: center;
+    margin: 0;
 }
 
 /* Container for all tracks */
 .container {
-    text-align: center;
+    width: 80%;
+    max-width: 1200px;
 }
 
 /* Header */
@@ -32,25 +40,27 @@ h1 {
 /* Each track container */
 .track {
     margin-bottom: 40px;
-    width: 350px;
-    display: inline-block;
-    text-align: center;
-    margin-right: 20px;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
     position: relative;
     background: #222;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
 }
 
-/* Image styling */
+/* Image styling to create a round vinyl look */
 .track-image {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
+    width: 200px;  /* Size of the vinyl */
+    height: 200px; /* Make sure it's a perfect circle */
+    border-radius: 50%;  /* Round image */
+    object-fit: cover;  /* Ensures the image doesn't stretch */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
+    margin-bottom: 15px;
 }
 
 /* Audio player styling */
@@ -69,18 +79,17 @@ h1 {
     transform: scale(1.05);
 }
 
-/* Track layout styling for spacing */
-.track + .track {
-    margin-top: 20px;
-}
-
-/* Responsive adjustments for smaller screens */
+/* Responsive design */
 @media (max-width: 768px) {
-    .track {
-        width: 280px;
-    }
-
     h1 {
         font-size: 30px;
+    }
+
+    .track {
+        width: 90%;
+    }
+
+    .track + .track {
+        margin-top: 20px;
     }
 }
