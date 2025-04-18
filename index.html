@@ -1,39 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cover Songs</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Forest of the Lost</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>Covers</h1>
+  <header>
+    <h1>Forest of the Lost</h1>
+  </header>
 
-        <!-- Track 1 -->
-        <div class="track">
-            <img class="track-image" src="images/photo1.JPG" alt="Track 1 Image">
-            <audio class="audio-player" controls>
-                <source src="audios/track1.mp3" type="audio/mp3">
-            </audio>
-        </div>
-
-        <!-- Track 2 -->
-        <div class="track">
-            <img class="track-image" src="Images/photo2.jpg" alt="Track 2 Image">
-            <audio class="audio-player" controls>
-                <source src="audios/track2.mp3" type="audio/mp3">
-            </audio>
-        </div>
-
-        <!-- Track 3 -->
-        <div class="track">
-            <img class="track-image" src="Images/photo3.jpg" alt="Track 3 Image">
-            <audio class="audio-player" controls>
-                <source src="audios/track3.mp3" type="audio/mp3">
-                Your browser does not support the audio element.
-            </audio>
-        </div>
+  <main class="container">
+    <!-- Track 1 -->
+    <div class="track">
+      <img src="images/photo1.JPG" alt="Track 1" class="track-image" id="track1-img">
+      <audio controls id="track1">
+        <source src="audios/track1.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
     </div>
+
+    <!-- Track 2 -->
+    <div class="track">
+      <img src="Images/photo2.jpg" alt="Track 2" class="track-image" id="track2-img">
+      <audio controls id="track2">
+        <source src="audios/track2.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <!-- Track 3 -->
+    <div class="track">
+      <img src="Images/photo3.jpg" alt="Track 3" class="track-image" id="track3-img">
+      <audio controls id="track3">
+        <source src="audios/track3.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
