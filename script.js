@@ -44,8 +44,3 @@ function openModal(monthName) {
 closeModalBtn.addEventListener('click', () => {
   modal.classList.add('hidden');
 });
-
-function showAbout() {
-  modal.classList.remove('hidden');
-  modalBody.innerHTML = "<h2>About</h2><p>This is Forest of the Lost — a creative space unfolding through the months...</p>";
-}
