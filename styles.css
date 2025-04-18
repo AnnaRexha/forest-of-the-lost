@@ -100,11 +100,28 @@ nav ul li a:hover {
 }
 
 .rotate {
-  animation: spin 12s linear infinite;
+  animation: spin 20s linear infinite;
 }
 
 audio {
   width: 100%;
+}
+
+audio {
+  width: 100%;
+  background: transparent;
+  border: none;
+  filter: brightness(1.3);
+  accent-color: #ffffff;
+  cursor: pointer;
+}
+
+.track audio {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
 }
 
 /* Vlogs */
