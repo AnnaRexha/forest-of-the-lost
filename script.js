@@ -2,17 +2,17 @@
 particlesJS("particles-js", {
   particles: {
     number: {
-      value: 80, // Adjust the number of particles
+      value: 80,
       density: {
         enable: true,
         value_area: 800
       }
     },
     color: {
-      value: "#ffffff" // White color for stars
+      value: "#ffffff"
     },
     shape: {
-      type: "circle", // Particles as circles (like stars)
+      type: "circle",
     },
     opacity: {
       value: 0.5,
@@ -61,7 +61,7 @@ particlesJS("particles-js", {
         enable: true,
         mode: "push"
       }
-    }
+    },
   },
   retina_detect: true
 });
@@ -71,13 +71,13 @@ const starNames = [
   'Orion', 'Sirius', 'Polaris', 'Betelgeuse', 'Aldebaran', 'Rigel', 'Antares', 'Capella', 'Arcturus', 'Vega', 'Altair', 'Spica'
 ];
 
-const container = document.getElementById('bubble-container');
+const container = document.getElementById('star-container'); // Correctly referencing 'star-container'
 
 // Dynamically generate the stars
 starNames.forEach((star, index) => {
   const starElement = document.createElement('div');
-  starElement.classList.add('bubble');
-  starElement.innerText = star;
+  starElement.classList.add('star'); // Assigning 'star' class for styling
+  starElement.innerText = star; // Text content for the star
 
   // Position the stars randomly within the container
   const x = Math.random() * window.innerWidth;
@@ -88,7 +88,7 @@ starNames.forEach((star, index) => {
   // Add event listener to open modal when clicked
   starElement.addEventListener('click', () => openModal(star));
 
-  container.appendChild(starElement);
+  container.appendChild(starElement); // Append the star to the container
 });
 
 // Modal functions
@@ -100,8 +100,7 @@ function openModal(starName) {
   modal.classList.remove('hidden');
   modalBody.innerHTML = `Loading content for ${starName}...`;
 
-  // Fetch content for the clicked star (you can customize it with your own content)
-  fetch(`content/${starName}.html`)
+  fetch(`content/${starName}.html`) // Assuming you have HTML files for each star under the 'content' directory
     .then(res => res.text())
     .then(data => modalBody.innerHTML = data)
     .catch(() => modalBody.innerHTML = "No content available.");
