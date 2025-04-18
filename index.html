@@ -9,24 +9,34 @@
 <body>
     <div class="container">
         <h1>Cover Songs</h1>
-        <div class="track" onclick="rotateTrack()">
-            <div class="vinyl"></div>
-            <div class="track-title">Click to Play Track</div>
+
+        <!-- Track 1 -->
+        <div class="track">
+            <img class="track-image" src="images/cover1.jpg" alt="Track 1 Image">
+            <audio class="audio-player" controls>
+                <source src="audio/track1.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
         </div>
-        <audio class="audio-player" id="audioPlayer" controls>
-            <source src="your-audio-file.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
+
+        <!-- Track 2 -->
+        <div class="track">
+            <img class="track-image" src="images/cover2.jpg" alt="Track 2 Image">
+            <audio class="audio-player" controls>
+                <source src="audio/track2.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Track 3 -->
+        <div class="track">
+            <img class="track-image" src="images/cover3.jpg" alt="Track 3 Image">
+            <audio class="audio-player" controls>
+                <source src="audio/track3.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
     </div>
-
-    <script>
-        function rotateTrack() {
-            const vinyl = document.querySelector('.vinyl');
-            const audioPlayer = document.getElementById('audioPlayer');
-            if (audioPlayer.paused) {
-                audioPlayer.play();
-                vinyl.classList.add('rotate');
-            } else {
-                audioPlayer.pause();
-                vinyl.classList.remove('rotate');
-
+</body>
+</html>
