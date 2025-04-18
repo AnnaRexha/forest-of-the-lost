@@ -61,50 +61,49 @@ particlesJS("particles-js", {
         enable: true,
         mode: "push"
       }
-    },
+    }
   },
   retina_detect: true
 });
 
-// Bubble (star) creation
-const months = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December'
+// Dynamic Star (Bubble) Creation
+const starData = [
+  { name: "Star 1", content: "This is content for Star 1." },
+  { name: "Star 2", content: "This is content for Star 2." },
+  { name: "Star 3", content: "This is content for Star 3." },
+  { name: "Star 4", content: "This is content for Star 4." },
+  { name: "Star 5", content: "This is content for Star 5." },
+  // Add as many stars as you want
 ];
 
 const container = document.getElementById('bubble-container');
 
-// Dynamically generate the bubbles (stars)
-months.forEach((month, index) => {
+// Create and position the stars
+starData.forEach((star, index) => {
   const bubble = document.createElement('div');
   bubble.classList.add('bubble');
-  bubble.innerText = month;
+  bubble.innerText = star.name;
 
-  // Position the bubbles randomly within the container
+  // Position the stars randomly within the container
   const x = Math.random() * window.innerWidth;
   const y = Math.random() * window.innerHeight;
   bubble.style.left = `${x}px`;
   bubble.style.top = `${y}px`;
 
-  // Add event listener to open modal when clicked
-  bubble.addEventListener('click', () => openModal(month));
+  // Add click event to open modal with content
+  bubble.addEventListener('click', () => openModal(star));
 
   container.appendChild(bubble);
 });
 
-// Modal functions
+// Modal Functions
 const modal = document.getElementById('modal');
 const modalBody = document.getElementById('modal-body');
 const closeModalBtn = document.getElementById('close-modal');
 
-function openModal(monthName) {
+function openModal(star) {
   modal.classList.remove('hidden');
-  modalBody.innerHTML = `Loading content for ${monthName}...`;
-
-  fetch(`content/${monthName}.html`)
-    .then(res => res.text())
-    .then(data => modalBody.innerHTML = data)
-    .catch(() => modalBody.innerHTML = "No content available.");
+  modalBody.innerHTML = star.content;
 }
 
 closeModalBtn.addEventListener('click', () => {
