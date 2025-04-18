@@ -12,11 +12,10 @@ months.forEach((month, index) => {
   bubble.classList.add('bubble');
   bubble.textContent = month;
 
-  // Position bubbles randomly (except current month)
   if (index === currentMonth) {
     bubble.classList.add('current-month');
   } else {
-    const randX = Math.random() * 80 + 5; // 5% to 85%
+    const randX = Math.random() * 80 + 5;
     const randY = Math.random() * 70 + 10;
     bubble.style.left = `${randX}%`;
     bubble.style.top = `${randY}%`;
@@ -26,7 +25,7 @@ months.forEach((month, index) => {
   container.appendChild(bubble);
 });
 
-// Modal functionality
+// Modal functions
 const modal = document.getElementById('modal');
 const modalBody = document.getElementById('modal-body');
 const closeModalBtn = document.getElementById('close-modal');
@@ -44,3 +43,11 @@ function openModal(monthName) {
 closeModalBtn.addEventListener('click', () => {
   modal.classList.add('hidden');
 });
+
+function showAbout() {
+  modal.classList.remove('hidden');
+  modalBody.innerHTML = `
+    <h2>About</h2>
+    <p>This is <strong>Forest of the Lost</strong> — a mysterious journey through months, moments, and memories. Click any bubble to explore.</p>
+  `;
+}
