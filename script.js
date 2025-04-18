@@ -17,4 +17,3 @@ function addRotationEvents(audioId, imgId) {
 
 addRotationEvents('track1', 'track1-img');
 addRotationEvents('track2', 'track2-img');
-addRotationEvents('track3', 'track3-img');
