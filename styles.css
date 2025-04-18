@@ -22,3 +22,42 @@ body {
   align-items: center;
   pointer-events: none; /* To avoid blocking interactions */
 }
+
+.bubble {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+  pointer-events: all;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
+}
+
+.bubble:hover {
+  transform: scale(1.2) rotate(15deg);
+}
+
+.star-name {
+  font-weight: bold;
+  font-size: 10px;
+  color: #fff;
+}
+
+.bubble:before {
+  content: '★'; /* Add a star symbol */
+  font-size: 20px;
+}
+
+.current-star {
+  border: 3px solid #ffcc00;
+}
