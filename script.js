@@ -1,58 +1,98 @@
+// 1. Star Bubble Generator
+
 const starNames = [
-  'Sirius', 'Betelgeuse', 'Alpha Centauri', 'Rigel', 'Vega', 'Polaris',
-  'Arcturus', 'Capella', 'Antares', 'Aldebaran', 'Spica', 'Fomalhaut'
+  'Sirius', 'Betelgeuse', 'Rigel', 'Vega', 'Polaris',
+  'Altair', 'Deneb', 'Antares', 'Procyon', 'Aldebaran',
+  'Capella', 'Spica', 'Arcturus', 'Canopus', 'Bellatrix'
 ];
 
-const currentStar = new Date().getMonth();
 const container = document.getElementById('bubble-container');
 
-// Generate star-shaped bubbles (stars)
-starNames.forEach((star, index) => {
+// Create star bubbles
+starNames.forEach((star, i) => {
   const bubble = document.createElement('div');
   bubble.classList.add('bubble');
-  bubble.classList.add(`star${index}`);
-  bubble.textContent = star;
-  
-  const randX = Math.random() * 90 + 5; // Random X position
-  const randY = Math.random() * 80 + 10; // Random Y position
-  
-  bubble.style.left = `${randX}%`;
-  bubble.style.top = `${randY}%`;
-  
-  // Mark current star
-  if (index === currentStar) {
+  bubble.innerHTML = `<div class="star-name">${star}</div>`;
+
+  // Position randomly across screen
+  bubble.style.top = `${Math.random() * 80 + 5}%`;
+  bubble.style.left = `${Math.random() * 80 + 5}%`;
+
+  // Highlight central star
+  if (i === Math.floor(starNames.length / 2)) {
     bubble.classList.add('current-star');
   }
-  
+
   bubble.addEventListener('click', () => openModal(star.toLowerCase()));
   container.appendChild(bubble);
 });
 
-// Modal functions
+// 2. Modal Functions
+
 const modal = document.getElementById('modal');
 const modalBody = document.getElementById('modal-body');
 const closeModalBtn = document.getElementById('close-modal');
 
 function openModal(starName) {
-  modal.classList.remove('hidden');
+  modal.style.display = 'flex';
   modalBody.innerHTML = "Loading content...";
 
-  fetch(`content/${starName}.html`) // Create a content file for each star
+  fetch(`content/${starName}.html`)
     .then(res => res.text())
     .then(data => modalBody.innerHTML = data)
     .catch(() => modalBody.innerHTML = "Nothing here yet... come back soon.");
 }
 
 closeModalBtn.addEventListener('click', () => {
-  modal.classList.add('hidden');
+  modal.style.display = 'none';
 });
 
 function showAbout() {
-  modal.classList.remove('hidden');
+  modal.style.display = 'flex';
   modalBody.innerHTML = `
     <h2>About</h2>
-    <p>This is the <strong>Galaxy of Stories</strong> — explore different stars and discover hidden content from my experiences.</p>
+    <p><strong>Forest of the Lost</strong> is a galaxy of creativity. Click on a star to explore songs, stories, and memories hidden among the stars.</p>
   `;
 }
 
-document.getElementById('modal').classList.add('hidden');
+// 3. Galaxy Particle Background
+
+particlesJS("particles-js", {
+  particles: {
+    number: {
+      value: 150,
+      density: { enable: true, value_area: 800 }
+    },
+    color: { value: "#ffffff" },
+    shape: {
+      type: "circle",
+      stroke: { width: 0, color: "#000000" }
+    },
+    opacity: {
+      value: 0.5,
+      random: true
+    },
+    size: {
+      value: 2,
+      random: true
+    },
+    move: {
+      enable: true,
+      speed: 0.3,
+      direction: "none",
+      random: false,
+      out_mode: "out"
+    }
+  },
+  interactivity: {
+    events: {
+      onhover: { enable: true, mode: "repulse" },
+      onclick: { enable: true, mode: "push" }
+    },
+    modes: {
+      repulse: { distance: 50 },
+      push: { particles_nb: 4 }
+    }
+  },
+  retina_detect: true
+});
