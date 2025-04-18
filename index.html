@@ -8,61 +8,22 @@
 </head>
 <body>
 
-  <!-- Nav Bar -->
   <nav>
     <h1>Forest of the Lost</h1>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#covers">Covers</a></li>
-      <li><a href="#vlogs">Vlogs</a></li>
-      <li><a href="#photography">Photography</a></li>
-    </ul>
+    <button onclick="showAbout()">About</button>
   </nav>
 
-  <!-- About Section -->
-  <section id="about" class="section full-section">
-    <h2>About</h2>
-    <p>This is your space to write a short intro, who you are, what you create, etc.</p>
-  </section>
+  <main id="bubble-container">
+    <!-- JavaScript will generate the bubbles -->
+  </main>
 
-  <!-- Covers Section -->
-  <section id="covers" class="section horizontal-scroll">
-    <h2>Covers</h2>
-    <div class="track">
-      <img src="images/photo1.JPG" alt="Track 1" class="track-image" id="track1-img">
-      <audio controls id="track1">
-        <source src="audios/track1.mp3" type="audio/mp3">
-      </audio>
+  <!-- Modal -->
+  <div id="modal" class="hidden">
+    <div class="modal-content">
+      <span id="close-modal">&times;</span>
+      <div id="modal-body">Loading...</div>
     </div>
-    <div class="track">
-      <img src="images/photo11.jpg" alt="Track 2" class="track-image" id="track2-img">
-      <audio controls id="track2">
-        <source src="audios/track2.mp3" type="audio/mp3">
-      </audio>
-    </div>
-  </section>
-
-  <!-- Vlogs Section -->
-  <section id="vlogs" class="section horizontal-scroll">
-    <h2>Vlogs</h2>
-    <div class="vlog">
-      <iframe width="300" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vlog 1" allowfullscreen></iframe>
-    </div>
-    <div class="vlog">
-      <iframe width="300" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vlog 2" allowfullscreen></iframe>
-    </div>
-  </section>
-
-  <!-- Photography Section -->
-  <section id="photography" class="section horizontal-scroll">
-    <h2>Photography</h2>
-    <div class="photo">
-      <img src="Images/photo3.jpg" alt="Photography 1">
-    </div>
-    <div class="photo">
-      <img src="Images/photo4.jpg" alt="Photography 2">
-    </div>
-  </section>
+  </div>
 
   <script src="script.js"></script>
 </body>
