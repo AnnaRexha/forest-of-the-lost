@@ -1,95 +1,87 @@
-/* Reset some default styles */
+/* Basic Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Ensure the entire page has a black background */
-html, body {
-    height: 100%;
-    background-color: black;
-    font-family: Arial, sans-serif;
-    color: white;
-}
-
-/* Center the content */
+/* Full page with your background image */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
-    text-align: center;
-    margin: 0;
+  background: url('Images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Helvetica Neue', sans-serif;
+  color: white;
+  text-align: center;
+  min-height: 100vh;
 }
 
-/* Container for all tracks */
+/* Header Title */
+header {
+  padding: 60px 20px 30px;
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Main container for all tracks */
 .container {
-    width: 80%;
-    max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  padding: 40px 20px 80px;
 }
 
-/* Header */
-h1 {
-    margin-bottom: 40px;
-    font-size: 36px;
-    font-weight: 600;
-}
-
-/* Each track container */
+/* Individual Track */
 .track {
-    margin-bottom: 40px;
-    width: 100%;
-    max-width: 350px;
-    margin: 0 auto;
-    position: relative;
-    background: #222;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 20px;
+  width: 300px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
-/* Image styling to create a round vinyl look */
+/* Vinyl-style image */
 .track-image {
-    width: 200px;  /* Size of the vinyl */
-    height: 200px; /* Make sure it's a perfect circle */
-    border-radius: 50%;  /* Round image */
-    object-fit: cover;  /* Ensures the image doesn't stretch */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer;
-    margin-bottom: 15px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Audio player styling */
-.audio-player {
-    width: 100%;
-    background-color: #333;
-    border-radius: 10px;
-    border: none;
-    margin-top: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    color: white;
+/* Rotate when class is added */
+.rotate {
+  animation: spin 4s linear infinite;
 }
 
-/* Hover effect on images */
-.track-image:hover {
-    transform: scale(1.05);
+/* Audio Player Styling */
+audio {
+  width: 100%;
+  outline: none;
+  border-radius: 10px;
+  background-color: #222;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 30px;
-    }
+/* Vinyl rotation animation */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
-    .track {
-        width: 90%;
-    }
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .track {
+    width: 80%;
+  }
 
-    .track + .track {
-        margin-top: 20px;
-    }
+  header h1 {
+    font-size: 2.5rem;
+  }
 }
