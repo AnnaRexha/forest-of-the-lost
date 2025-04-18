@@ -32,9 +32,15 @@ h1 {
 /* Each track container */
 .track {
     margin-bottom: 40px;
-    width: 300px;
+    width: 350px;
     display: inline-block;
     text-align: center;
+    margin-right: 20px;
+    position: relative;
+    background: #222;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 /* Image styling */
@@ -42,18 +48,20 @@ h1 {
     width: 100%;
     height: auto;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
     transition: transform 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 /* Audio player styling */
 .audio-player {
     width: 100%;
     background-color: #333;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
     margin-top: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    color: white;
 }
 
 /* Hover effect on images */
@@ -61,12 +69,18 @@ h1 {
     transform: scale(1.05);
 }
 
-/* Styling for the track layout */
-.track {
-    position: relative;
-}
-
-/* Add spacing between tracks */
+/* Track layout styling for spacing */
 .track + .track {
     margin-top: 20px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .track {
+        width: 280px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
 }
