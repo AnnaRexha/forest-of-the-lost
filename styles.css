@@ -60,13 +60,16 @@ canvas#stars {
 }
 
 .modal-content {
-  background: white;
-  border-radius: 12px;
+  background: rgba(30, 10, 50, 0.9); /* deep purple glassy background */
+  color: white;
+  border-radius: 20px;
   padding: 2rem;
   max-width: 600px;
   margin: 10% auto;
   text-align: center;
   position: relative;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
 }
 
 .close {
@@ -76,3 +79,21 @@ canvas#stars {
   color: #333;
   cursor: pointer;
 }
+
+/* Sparkles Layer */
+.sparkle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 2s infinite ease-in-out;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
