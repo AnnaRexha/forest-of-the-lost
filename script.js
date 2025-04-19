@@ -1,4 +1,4 @@
-// STAR BACKGROUND ANIMATION
+// Stars animation
 const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
 
@@ -22,7 +22,7 @@ function drawStars() {
   for (let i = 0; i < stars.length; i++) {
     let s = stars[i];
     ctx.beginPath();
-    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2, true);
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
     ctx.fill();
   }
 }
@@ -41,9 +41,10 @@ function animateStars() {
 
 animateStars();
 
-// MODAL FUNCTIONALITY
+// Modal logic
 function openModal(title) {
   document.getElementById("modal-title").innerText = title;
+  document.getElementById("modal-body").innerHTML = `<p>Here you can show content related to <strong>${title}</strong> — like a photo album, song, or vlog!</p>`;
   document.getElementById("modal").style.display = "block";
 }
 
