@@ -3,25 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Forest of the Lost</title>
+  <title>Memory Map</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-  <div id="galaxy-background"></div>
-
-  <h1 id="site-title">Forest of the Lost</h1>
-
-  <div id="planet-container"></div>
-
-  <!-- Modal -->
-  <div id="modal" class="hidden">
-    <div class="modal-content">
-      <span id="close-modal">&times;</span>
-      <div id="modal-body">Loading...</div>
+  <div id="memory-map">
+    <div class="memory-point" data-memory="Memory 1 - A journey through time" style="top: 10%; left: 30%;">
+      <img src="images/photo1.jpg" alt="Memory 1" />
     </div>
+    <div class="memory-point" data-memory="Memory 2 - Love and Loss" style="top: 50%; left: 70%;">
+      <img src="images/photo2.jpg" alt="Memory 2" />
+    </div>
+    <div class="memory-point" data-memory="Memory 3 - Migration Stories" style="top: 80%; left: 20%;">
+      <img src="images/photo3.jpg" alt="Memory 3" />
+    </div>
+    <div class="memory-point" data-memory="Memory 4 - A moment of peace" style="top: 30%; left: 80%;">
+      <img src="images/photo4.jpg" alt="Memory 4" />
+    </div>
+
+    <div id="story" class="story-box"></div>
   </div>
 
+  <script src="https://unpkg.com/panzoom"></script>
   <script src="script.js"></script>
 </body>
 </html>
