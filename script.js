@@ -1,73 +1,60 @@
-// Stars animation
-const canvas = document.getElementById("stars");
-const ctx = canvas.getContext("2d");
+// Sparkles and Comets
+window.onload = function () {
+  const canvas = document.getElementById("stars");
+  const ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let stars = [];
-
-for (let i = 0; i < 100; i++) {
-  stars.push({
+  let stars = Array.from({ length: 100 }, () => ({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    r: Math.random() * 1.5 + 0.5,
-    d: Math.random() * 1
-  });
-}
+    r: Math.random() * 1.5,
+    d: Math.random() * 100
+  }));
 
-function drawStars() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "white";
-  for (let i = 0; i < stars.length; i++) {
-    let s = stars[i];
+  function drawStars() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "white";
     ctx.beginPath();
-    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    for (let s of stars) {
+      ctx.moveTo(s.x, s.y);
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2, true);
+    }
     ctx.fill();
+    updateStars();
   }
-}
 
-function animateStars() {
-  for (let i = 0; i < stars.length; i++) {
-    stars[i].y += stars[i].d;
-    if (stars[i].y > canvas.height) {
-      stars[i].y = 0;
-      stars[i].x = Math.random() * canvas.width;
+  let angle = 0;
+  function updateStars() {
+    angle += 0.01;
+    for (let i = 0; i < stars.length; i++) {
+      stars[i].y += Math.cos(angle + stars[i].d) + 1;
+      stars[i].x += Math.sin(angle) * 0.5;
+      if (stars[i].x > canvas.width || stars[i].y > canvas.height) {
+        stars[i].x = Math.random() * canvas.width;
+        stars[i].y = 0;
+      }
     }
   }
-  drawStars();
-  requestAnimationFrame(animateStars);
-}
 
-animateStars();
+  setInterval(drawStars, 33);
+};
 
-// Sparkles
-for (let i = 0; i < 40; i++) {
-  let sparkle = document.createElement("div");
-  sparkle.className = "sparkle";
-  sparkle.style.top = `${Math.random() * window.innerHeight}px`;
-  sparkle.style.left = `${Math.random() * window.innerWidth}px`;
-  sparkle.style.animationDelay = `${Math.random() * 2}s`;
-  document.body.appendChild(sparkle);
-}
-
-
-// Modal logic
-function openModal(title) {
-  document.getElementById("modal-title").innerText = title;
-  document.getElementById("modal-body").innerHTML = `<p>This is where your magical content goes for <strong>${title}</strong>! Add photos, videos, or a song here!</p>`;
+// Modal Logic
+function openModal(title, content) {
+  document.getElementById("modalTitle").textContent = title;
+  document.getElementById("modalBody").textContent = content;
   document.getElementById("modal").style.display = "block";
 }
 
-function closeModal() {
+document.getElementById("closeModal").onclick = function () {
   document.getElementById("modal").style.display = "none";
-}
+};
 
-// Comets
-for (let i = 0; i < 3; i++) {
-  let comet = document.createElement("div");
-  comet.className = "comet";
-  comet.style.top = `${Math.random() * window.innerHeight}px`;
-  comet.style.animationDelay = `${Math.random() * 10}s`;
-  document.body.appendChild(comet);
-}
+window.onclick = function (event) {
+  const modal = document.getElementById("modal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
