@@ -1,4 +1,5 @@
-const starContainer = document.getElementById('star-container');
+const starContainer = document.createElement('div');
+document.body.appendChild(starContainer);
 
 function createStar() {
   const star = document.createElement('div');
