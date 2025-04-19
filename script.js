@@ -1,38 +1,52 @@
-const planetContainer = document.getElementById("planet-container");
-const modal = document.getElementById("modal");
-const modalBody = document.getElementById("modal-body");
-const closeModal = document.getElementById("close-modal");
+// STAR BACKGROUND ANIMATION
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
 
-// Sample planets with links to your content (you can change/add)
-const planets = [
-  { name: "Story Planet", img: "images/planet1.png", content: "content/story.html" },
-  { name: "Music Planet", img: "images/planet2.png", content: "content/music.html" },
-  { name: "Photo Planet", img: "images/planet3.png", content: "content/photos.html" },
-  { name: "Vlog Planet", img: "images/planet4.png", content: "content/vlog.html" }
-];
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-// Create planets dynamically
-planets.forEach((planet, index) => {
-  const planetEl = document.createElement("div");
-  planetEl.className = "planet";
-  planetEl.style.backgroundImage = `url(${planet.img})`;
-  planetEl.style.top = `${Math.random() * 80 + 10}%`;
-  planetEl.style.left = `${Math.random() * 90 + 5}%`;
-  planetEl.style.animationDuration = `${Math.random() * 5 + 4}s`;
+let stars = [];
 
-  planetEl.addEventListener("click", () => {
-    modal.classList.remove("hidden");
-    modalBody.innerHTML = "Loading...";
-    fetch(planet.content)
-      .then(res => res.text())
-      .then(data => modalBody.innerHTML = data)
-      .catch(() => modalBody.innerHTML = "Content not found.");
+for (let i = 0; i < 100; i++) {
+  stars.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 1.5 + 0.5,
+    d: Math.random() * 1
   });
+}
 
-  planetContainer.appendChild(planetEl);
-});
+function drawStars() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "white";
+  for (let i = 0; i < stars.length; i++) {
+    let s = stars[i];
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2, true);
+    ctx.fill();
+  }
+}
 
-// Modal close
-closeModal.addEventListener("click", () => {
-  modal.classList.add("hidden");
-});
+function animateStars() {
+  for (let i = 0; i < stars.length; i++) {
+    stars[i].y += stars[i].d;
+    if (stars[i].y > canvas.height) {
+      stars[i].y = 0;
+      stars[i].x = Math.random() * canvas.width;
+    }
+  }
+  drawStars();
+  requestAnimationFrame(animateStars);
+}
+
+animateStars();
+
+// MODAL FUNCTIONALITY
+function openModal(title) {
+  document.getElementById("modal-title").innerText = title;
+  document.getElementById("modal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
