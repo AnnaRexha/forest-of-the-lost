@@ -44,7 +44,7 @@ animateStars();
 // Modal logic
 function openModal(title) {
   document.getElementById("modal-title").innerText = title;
-  document.getElementById("modal-body").innerHTML = `<p>Here you can show content related to <strong>${title}</strong> — like a photo album, song, or vlog!</p>`;
+  document.getElementById("modal-body").innerHTML = `<p>This is where your magical content goes for <strong>${title}</strong>! Add photos, videos, or a song here!</p>`;
   document.getElementById("modal").style.display = "block";
 }
 
