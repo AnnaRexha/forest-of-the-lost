@@ -97,3 +97,29 @@ canvas#stars {
   50% { opacity: 1; transform: scale(1.5); }
 }
 
+.comet {
+  position: absolute;
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, white, transparent);
+  opacity: 0.3;
+  transform: rotate(-30deg);
+  animation: flyComet 10s linear infinite;
+  z-index: 1;
+}
+
+@keyframes flyComet {
+  0% {
+    left: -100px;
+    top: 0;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    left: 110%;
+    top: 80%;
+    opacity: 0;
+  }
+}
