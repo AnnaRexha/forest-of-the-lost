@@ -62,3 +62,12 @@ function openModal(title) {
 function closeModal() {
   document.getElementById("modal").style.display = "none";
 }
+
+// Comets
+for (let i = 0; i < 3; i++) {
+  let comet = document.createElement("div");
+  comet.className = "comet";
+  comet.style.top = `${Math.random() * window.innerHeight}px`;
+  comet.style.animationDelay = `${Math.random() * 10}s`;
+  document.body.appendChild(comet);
+}
