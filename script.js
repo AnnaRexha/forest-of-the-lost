@@ -41,6 +41,17 @@ function animateStars() {
 
 animateStars();
 
+// Sparkles
+for (let i = 0; i < 40; i++) {
+  let sparkle = document.createElement("div");
+  sparkle.className = "sparkle";
+  sparkle.style.top = `${Math.random() * window.innerHeight}px`;
+  sparkle.style.left = `${Math.random() * window.innerWidth}px`;
+  sparkle.style.animationDelay = `${Math.random() * 2}s`;
+  document.body.appendChild(sparkle);
+}
+
+
 // Modal logic
 function openModal(title) {
   document.getElementById("modal-title").innerText = title;
